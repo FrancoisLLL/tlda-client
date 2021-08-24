@@ -1,13 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
+:root {
+  --main-bg-color: #282a36;
+  --main-font-color: #f8f8f2;
+  --main-font-color-emph: #bd93f9;
+  --main-font-color-comp: #8be9fd;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: var(--main-bg-color);
+  color: var(--main-font-color)
 }
 
 html {
-  font-family: "Manrope", sans-serif;
+  font-family: 'Belleza', sans-serif;
 }
 
 a {
@@ -17,4 +26,12 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+.violet {
+  color: var(--main-font-color-emph)
+}
+
+.smallFont {
+  font-size : small
 }

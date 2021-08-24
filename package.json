@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@svgr/cli": "^5.5.0",
     "axios": "^0.21.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -13,7 +14,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:svg": "svgr src/svg/ -d src/components/icons"
   },
   "eslintConfig": {
     "extends": "react-app"
