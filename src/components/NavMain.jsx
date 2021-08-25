@@ -22,8 +22,12 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <h3 className="logo">App name</h3>
+        <h3 id="AppName">            
+        <span className="compColor">&lt;</span>
+          tl<span className="mainColor">;</span>da
+          <span className="compColor">&gt;</span></h3>
       </NavLink>
+      
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>

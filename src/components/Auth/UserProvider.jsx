@@ -7,6 +7,7 @@ class UserProvider extends Component {
     user: null,
     isLoggedIn: false,
     isLoading: true,
+    hasItem:false
   };
 
   componentDidMount() {

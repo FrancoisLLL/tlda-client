@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Belleza&display=swap');
 :root {
-  --main-bg-color: #282a36;
+  --main-bg-color: #20222c;
   --main-font-color: #f8f8f2;
   --main-font-color-emph: #bd93f9;
-  --main-font-color-comp: #8be9fd;
+  --main-font-color-comp1: #8be9fd;
+  --main-font-color-comp2: #f1fa8c;
+  --main-font-color-comp3: #ffb86c;
+  --main-font-color-comp4: #ff79c6;
+  --main-font-color-comp5: #50fa7b;
 }
 
 * {
@@ -28,10 +32,28 @@ ul {
   list-style-type: none;
 }
 
-.violet {
+.mainColor {
   color: var(--main-font-color-emph)
+}
+
+.compColor {
+  color: var(--main-font-color-comp1)
 }
 
 .smallFont {
   font-size : small
+}
+
+
+.error {
+  color: var(--main-font-color-comp4)
+}
+
+
+.flex {
+  display: flex
+}
+
+.center {
+  justify-content: center;
 }

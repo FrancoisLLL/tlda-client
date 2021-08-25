@@ -44,6 +44,49 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
+  checkIfOneItem() {
+    return service
+      .get("/api/users/me/oneItem")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getTypes() {
+    return service
+      .get("/api/types")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getColors() {
+    return service
+      .get("/api/colors")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  postItem(item) {
+    return service
+      .post("/api/items", item)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  postBatchItems(batch) {
+    return service
+      .post("/api/items/batchInsert", batch)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getOutfit() {
+    return service
+      .get("/api/outfits/generate")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+
   // getItems() {
   //   return service
   //     .get("/api/items")

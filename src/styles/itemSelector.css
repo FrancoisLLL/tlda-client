@@ -1,0 +1,72 @@
+.ItemSelectorImage {
+    color:blue;
+    text-align: center;
+}
+
+
+
+.ItemSelectorImage svg{
+    height: 100px;
+    width: 100px;
+    fill: var(--main-font-color);
+}
+.ItemSelectorImageActive svg{
+    height: 100px;
+    width: 100px;
+    fill: var(--main-font-color-emph);
+}
+
+#itemSelector {
+    height: 60vh;
+    width: 40vw;
+    overflow: scroll;
+}
+.ColorPickerRound {
+    height: 30px;
+    width: 30px;
+    margin: 3px;
+    border-radius: 50%;
+    border: 1px solid var(--main-font-color);
+}
+
+#colorPicker {
+    height: 60vh;
+    display:flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    overflow:scroll;
+    padding: 0 10px 0 10px;
+}
+
+#Item {
+    text-align:center;
+}
+
+
+#PageTitle {
+    font-size: x-large;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+#PageTitle span {
+    margin-right: 5px;
+}
+#PageTitle span:nth-of-type(1n) {
+    color: var(--main-font-color-comp2)
+}
+#PageTitle span:nth-of-type(2n) {
+    color:var(--main-font-color-comp5)
+}
+#PageTitle span:nth-of-type(3n) {
+    color:var(--main-font-color-comp3)
+}
+#PageTitle span:nth-of-type(4n) {
+    color:var(--main-font-color-comp4)
+}
+
+.selected {
+    border: 1px solid var(--main-font-color-emph)
+}
+
+

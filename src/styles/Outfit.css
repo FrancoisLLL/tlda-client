@@ -1,0 +1,22 @@
+#Outfit {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.OutfitItem svg {
+    height: 100px;
+    width: 100px;
+}
+
+.OutfitPalette {
+    margin-bottom: 30px;
+}
+
+.ColorPalette {
+    height: 35px;
+    width: 35px;
+    margin-right: 5px;
+    border-radius: 5px;
+
+}
