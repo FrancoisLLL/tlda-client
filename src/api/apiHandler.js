@@ -109,6 +109,20 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
+  getOneHistory(id) {
+    return service
+      .get(`/api/outfits/${id}/details`)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  patchOneOutfit(id, outfitUpdate) {
+    return service
+      .patch(`/api/outfits/${id}`, outfitUpdate)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
   postOutfit(outfit) {
     return service
       .post("/api/outfits/", outfit)

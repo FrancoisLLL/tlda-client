@@ -13,6 +13,7 @@
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
+    text-align: center;
 }
 .OutfitCardItems {
     margin: 20px;
@@ -24,4 +25,21 @@
 .OutfitCard svg{
    height: 80px;
    width: 80px;
+}
+
+.OutfitImageContainer {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 5px solid white;
+}
+
+.OutfitImage {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    border: 5px solid white;
 }

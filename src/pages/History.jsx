@@ -31,7 +31,7 @@ export class History extends Component {
                 <div id = "HistoryContent">
                     {this.state.outfits && (
                         this.state.outfits.map(outfit => {
-                            return <OutfitHistoryCard key = {outfit._id} items = {outfit.item} date={outfit.date}/>
+                            return <OutfitHistoryCard key = {outfit._id} id= {outfit._id} />
                         })
                     )}
                 </div>
