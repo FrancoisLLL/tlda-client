@@ -1,32 +1,49 @@
 import React from "react";
 import "../styles/Home.css";
-import { Svg001TShirt } from "../components/icons";
-import { NavLink } from "react-router-dom";
-
+import Cintre from "../components/icons/Cintre.js";
+import { NavLink, Redirect } from "react-router-dom";
+import { withUser } from "../components/Auth/withUser";
 class Home extends React.Component {
   render() {
+    if (this.props.context.user) {
+      return <Redirect to="/index" />;
+    }
     return (
-      <div className="Home">
+
+      
+      <div id="Home">
+        {/* first section */}
         <section id="firstScreen">
 
-          <h1 id="title">
-            <span className="compColor">&lt;</span>
-            tl<span className="mainColor">;</span>da
-            <span className="compColor">&gt;</span>
-          </h1>
+          <div id="HomeTitle">
+            <h1 >
+              <span className="compColor">&lt;</span>
+              tl<span className="mainColor">;</span>da
+              <span className="compColor">&gt;</span>
+            </h1>
+          </div>
+
           <div id="LogoContainer">
-            <Svg001TShirt></Svg001TShirt>
+            <Cintre></Cintre>
           </div>
           <p className="HomeText smallFont">If you want to dress better but do not want to  the effort</p>
-          <button>Scroll down</button>
+          <a href='#secondScreen'>
+            <button className="HomeArrowButtonDown"></button>
+          </a>
         </section>
+
+        {/* Second section */}
+
         <section id="secondScreen">
-          <div>
+          <a href='#Home'>
+
+            <button className="HomeArrowButtonUp"></button>
+          </a>
+          <article id="HomeArticle">
             <p>Improve your style with better color patterns</p>
             <p>Get recommendation based on weather</p>
             <p>Access to geeky stats</p>
-
-          </div>
+          </article>
           <div>
             <h2 id="subTitle">
               <span className="compColor">&lt;</span>
@@ -41,7 +58,21 @@ class Home extends React.Component {
             </h3>
           </div>
 
-          <NavLink to="/signup">Sign up</NavLink>
+          <div className="flex center">
+            <NavLink to="/signup">
+              <div className="button">
+                Sign up
+              </div>
+            </NavLink>
+
+            <NavLink to="/signin">
+              <div className="button">
+                Sign in
+              </div>
+            </NavLink>
+          </div>
+
+
 
         </section>
 
@@ -50,4 +81,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withUser(Home);

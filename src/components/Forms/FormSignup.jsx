@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter, Redirect, NavLink } from "react-router-dom";
 import { withUser } from "../Auth/withUser";
 import apiHandler from "../../api/apiHandler";
 
@@ -42,12 +42,18 @@ class FormSignup extends Component {
 
   render() {
     if (this.props.context.user) {
-        return <Redirect to="/" />;
+      return <Redirect to="/" />;
     }
 
     return (
       <div id="form">
-
+        <NavLink to="/">
+          <h2 id="subTitle">
+            <span className="compColor">&lt;</span>
+            tl<span className="mainColor">;</span>da
+            <span className="compColor">&gt;</span>
+          </h2>
+        </NavLink>
         <form onSubmit={this.handleSubmit}>
           <h1 id="FormTitle">
             <span>let's</span>
@@ -58,7 +64,7 @@ class FormSignup extends Component {
             <span>other</span>
           </h1>
 
-          <div>
+          <div className = "FormInputContainer">
             <label htmlFor="firstName">First Name</label>
             <p>
               <input
@@ -70,8 +76,7 @@ class FormSignup extends Component {
                 required
               />
             </p>
-          </div>
-          <div>
+
             <label htmlFor="lastName">Last Name</label>
             <p>
 
@@ -84,8 +89,7 @@ class FormSignup extends Component {
                 required
               />
             </p>
-          </div>
-          <div>
+
 
             <label htmlFor="email">Email</label>
             <p>
@@ -99,8 +103,7 @@ class FormSignup extends Component {
                 required
               />
             </p>
-          </div>
-          <div>
+
             <label htmlFor="password">Password</label>
             <p>
               <input
@@ -130,7 +133,8 @@ class FormSignup extends Component {
           </div> */}
 
 
-          <button>Submit</button>
+          <button className="button">Submit</button>
+
         </form>
       </div>
 

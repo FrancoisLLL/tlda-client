@@ -8,51 +8,37 @@ import "../styles/NavMain.css";
 const NavMain = (props) => {
   const { context } = props;
 
-  function handleLogout() {
-    apiHandler
-      .logout()
-      .then(() => {
-        context.removeUser();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // function handleLogout() {
+  //   apiHandler
+  //     .logout()
+  //     .then(() => {
+  //       context.removeUser();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   return (
-    <nav className="NavMain">
-      <NavLink exact to="/">
-        <h3 id="AppName">            
-        <span className="compColor">&lt;</span>
+    context.isLoggedIn && (
+      <nav className="NavMain">
+        <NavLink exact to="/index">
+          <div className = "HomeButton">
+            &#8962;
+          </div>
+        </NavLink>
+
+        <NavLink exact to="/index">
+
+        <h3 id="nav-list">
+          <span className="compColor">&lt;</span>
           tl<span className="mainColor">;</span>da
-          <span className="compColor">&gt;</span></h3>
-      </NavLink>
-      
-      <ul className="nav-list">
-        {context.isLoggedIn && (
-          <React.Fragment>
-            <li>
-              <NavLink to="/profile">
-                {context.user && context.user.email}
-              </NavLink>
-            </li>
-            <li>
-              <p onClick={handleLogout}>Logout</p>
-            </li>
-          </React.Fragment>
-        )}
-        {!context.isLoggedIn && (
-          <React.Fragment>
-            <li>
-              <NavLink to="/signin">Log in</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup">Create account</NavLink>
-            </li>
-          </React.Fragment>
-        )}
-      </ul>
-    </nav>
+          <span className="compColor">&gt;</span>
+        </h3>
+        </NavLink>
+
+      </nav>
+    )
   );
 };
 

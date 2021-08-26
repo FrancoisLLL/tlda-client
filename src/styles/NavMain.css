@@ -5,13 +5,18 @@
   align-items: center;
   padding: 20px;
   height: 70px;
+  justify-content: space-around;
 }
 
-.NavMain .nav-list {
+.HomeButton {
+  font-weight: 900;
+  font-size: x-large
+}
+/* .NavMain .nav-list {
   margin-left: auto;
   display: flex;
 }
 
 .NavMain .nav-list li:not(:last-child) {
   margin-right: 20px;
-}
+} */

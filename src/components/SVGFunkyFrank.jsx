@@ -27,7 +27,7 @@ class SVGFunkyFranck extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("did update ")
+    // console.log("did update ")
     if (this.state.color !== prevState.color) {
       const element = this.divRef.current.querySelector("svg")
 
@@ -40,7 +40,7 @@ class SVGFunkyFranck extends React.Component {
   }
 
   handleMutation = (mutationsList, observer) => {
-    console.log("mutate ", this.state.color)
+    // console.log("mutate ", this.state.color)
     for (const mutation of mutationsList) {
       if (mutation.type === "childList") {
         this.divRef.current

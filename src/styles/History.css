@@ -1,0 +1,27 @@
+#History {
+    text-align: center;
+
+}
+
+#HistoryContent {
+    height: 80vh;
+    overflow:scroll
+}
+.OutfitCard{
+    
+    border: 2px solid var(--main-font-color-emph);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+.OutfitCardItems {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.OutfitCard svg{
+   height: 80px;
+   width: 80px;
+}

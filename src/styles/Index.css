@@ -1,0 +1,18 @@
+#Index {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Index h1{
+    margin: 5vh
+}
+
+#Index div button{
+    width: 200px
+}
+
+.lastButton {
+    margin-top: 10vh;
+}

@@ -31,5 +31,9 @@
 }
 
 #form button {
-    margin-top: 100px;
+    margin-top: 10vh;
+}
+
+.FormInputContainer {
+    padding: 30px;
 }

@@ -5,13 +5,33 @@ import ItemSelector from "../components/ItemSelector";
 import ItemColorSelector from "../components/ItemColorSector";
 import apiHandler from '../api/apiHandler';
 import { Redirect } from "react-router-dom"
-
+import { withUser } from '../components/Auth/withUser';
 export class Items extends Component {
     state = {
         typeIdClicked: null,
         typeClicked: null,
         itemsSelected: null,
+        itemsOwned: null,
         isSubmitted: false
+    }
+
+
+    componentDidMount() {
+        apiHandler.getItems()
+            .then(data => {
+                const itemsFound = data.map(item => {
+                    return {
+                        typeId: item.type,
+                        color: item.color
+                    }
+                })
+                this.setState({
+                    itemsSelected: [...itemsFound],
+                    itemsOwned: [...itemsFound],
+                })
+            }
+            )
+            .catch()
     }
 
     handleItemClick = (id) => {
@@ -24,44 +44,85 @@ export class Items extends Component {
 
     handleColorPick = (color) => {
         const items = this.state.itemsSelected ? [...this.state.itemsSelected] : []
-        items.push({
+
+        const filteredItems = items.filter(item => JSON.stringify(item) !== JSON.stringify({
             typeId: this.state.typeIdClicked,
             color: color
-        })
+        }))
 
-        this.setState({
-            itemsSelected: items
+        if(filteredItems.length===items.length)
+        {
+            items.push({
+                typeId: this.state.typeIdClicked,
+                color: color
+            })
+
+            this.setState({
+                itemsSelected: [...items]
+            })
         }
-        )
+        else{
+            this.setState({
+                itemsSelected: [...filteredItems]
+            })
+        }
+
     }
 
     handleSubmit = () => {
 
-        const batchItem = this.state.itemsSelected.map((item) => {
-            return {
-                type: item.typeId,
-                color: item.color
-            }
-        })
+        if (this.state.itemsSelected) {
+            // const batchItem = this.state.itemsSelected.map((item) => {
+            //     return {
+            //         type: item.typeId,
+            //         color: item.color
+            //     }
+            // })
 
-        apiHandler.postBatchItems(batchItem)
-            .then(data => {
-                this.setState({
-                    typeIdClicked: null,
-                    typeClicked: null,
-                    itemsSelected: null,
-                    isSubmitted: true
-                })
+            const batchItemFiltered = this.state.itemsSelected.filter((item) => {
+                return (
+                    !this.state.itemsOwned.includes(item)
+                )
+            }).map((item) => {
+                return {
+                    type: item.typeId,
+                    color: item.color
+                }
             })
-            .catch(err => console.log(err))
 
+            apiHandler.postBatchItems(batchItemFiltered)
+                .then(data => {
+                    this.setState({
+                        typeIdClicked: null,
+                        typeClicked: null,
+                        itemsSelected: null,
+                        itemsOwned: null,
+                        isSubmitted: true
+                    })
+                })
+                .catch(err => console.log(err))
+        }
+        else {
+            this.setState({
+                isSubmitted: true
+            })
+        }
     }
+
 
     render() {
 
-        if(this.state.isSubmitted) {
-            console.log("redirect")
-            return <Redirect to="/outfits"/>
+
+        // console.log(!this.props.context.user)
+        // if (!this.props.context.user) {
+        //     return <Redirect to="/signin" />;
+        //   }
+        if (!this.props.context.user) {
+            return <Redirect to = "/"></Redirect>
+        }
+
+        if (this.state.isSubmitted) {
+            return <Redirect to="/index" />
         }
 
         return (<>
@@ -73,15 +134,15 @@ export class Items extends Component {
                     <span>you</span>
                     <span>own</span>
                 </h1>
-                <div className="flex">
+                <div id="ItemSelector" className="flex">
                     <ItemSelector handleClick={this.handleItemClick} typeIdClicked={this.state.typeIdClicked} />
                     {this.state.typeIdClicked && <ItemColorSelector handleClick={this.handleColorPick} typeIdClicked={this.state.typeIdClicked} items={this.state.itemsSelected} />}
                 </div>
-                <button onClick={this.handleSubmit}>Submit</button>
+                <button className="button" onClick={this.handleSubmit}>Add to collection</button>
             </div>
         </>
         )
     }
 }
 
-export default Items
+export default withUser(Items)

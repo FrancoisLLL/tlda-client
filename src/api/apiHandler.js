@@ -65,6 +65,22 @@ const apiHandler = {
       .catch(errorHandler);
   },
 
+
+  getItems() {
+    return service
+      .get("/api/users/me/items")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  getMeteo() {
+    return service
+      .get("/api/meteo")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+
   postItem(item) {
     return service
       .post("/api/items", item)
@@ -85,6 +101,21 @@ const apiHandler = {
       .then((res) => res.data)
       .catch(errorHandler);
   },
+
+  getOutfitsHistory() {
+    return service
+      .get("/api/users/me/outfits")
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
+  postOutfit(outfit) {
+    return service
+      .post("/api/outfits/", outfit)
+      .then((res) => res.data)
+      .catch(errorHandler);
+  },
+
 
 
   // getItems() {

@@ -4,7 +4,7 @@ const ColorPalette = (props) => {
     return (
         <div className = "center flex">
             {props.colors.map(color => {
-                return <div key ="color" className = "ColorPalette" style={{
+                return <div key ={color}className = "ColorPalette" style={{
                     backgroundColor: color,
                 }}>
                 </div>

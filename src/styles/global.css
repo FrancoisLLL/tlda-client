@@ -57,3 +57,92 @@ ul {
 .center {
   justify-content: center;
 }
+/* 
+.button {
+  margin: 10px;
+  min-width: 100px;
+  width: fit-content;
+  padding: 5px;
+  box-shadow: 5px 5px 10px black;
+
+  color: var(--main-font-color);
+  background-color: var(--main-font-color-emph);
+}
+
+.button:hover {
+  margin: 10px;
+  min-width: 100px;
+  width: fit-content;
+  padding: 5px;
+  box-shadow: 5px 5px 10px black;
+
+  color: var(--main-font-color);
+  background-color: var(--main-font-color);
+}
+ */
+
+
+.button {
+    min-width: 140px;
+    border: none;
+    outline: none;
+    color: var(--main-bg-color);
+    background: var(--main-font-color);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin : 5px;
+    box-shadow: 5px 5px 10px black;
+    padding: 5px;
+
+}
+
+.button:before {
+    content: '';
+    background: linear-gradient(90deg, var(--main-font-color-comp1), var(--main-font-color-comp2), var(--main-font-color-comp3), var(--main-font-color-comp4), var(--main-font-color-comp5));
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.button:active {
+  background: var(--main-font-color);
+}
+
+.button:active:after {
+    background: transparent;
+}
+
+.button:hover:before {
+    opacity: 1;
+}
+
+.button:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--main-font-color);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+

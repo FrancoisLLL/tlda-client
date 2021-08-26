@@ -1,15 +1,10 @@
 #LogoContainer {
-    height: 50%;
-    width: 50%;
-    margin: auto;
-    margin-top: 80px;
-
-    margin-bottom: 80px;
+    margin-top: 20vh;
 }
 
 #LogoContainer svg {
-    width: 100%;
-    height: 100%;
+    height: 120px;
+    width: 120px;
     fill: var(--main-font-color)
 }
 
@@ -21,27 +16,34 @@
     width: 50%;
     text-align: center;
     margin: 0 auto;
+    margin-top: 20vh;
 }
 
-.Home {
+#Home {
     width: 100%;
     text-align: center;
 }
 
-#title {
-    font-size: xxx-large;
+#HomeTitle {
+    margin-top: 10vh;
+    font-size: xx-large;
     font-weight: bolder;
-    margin: 20px;
 }
 
 #subTitle {
     font-size: xxx-large;
     font-weight: bolder;
-    margin: 20px;
+    margin-top: 20px;
 }
 
+#subsubTitle {
+    margin-bottom : 15vh;
+
+}
 #subsubTitle span {
     margin-left: 5px;
+
+    margin-right: 5px;
 }
 
 #subsubTitle span:nth-of-type(1) {
@@ -61,14 +63,46 @@
 }
 
 #firstScreen {
-    height: 90vh;
+    height: 100vh;
 }
 
 #secondScreen {
     height: 100vh;
 }
 
+.HomeArrowButtonDown {
+    margin-top: 5vh;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 30px solid var(--main-font-color-emph);
 
+}
+
+.HomeArrowButtonUp {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid var(--main-font-color-emph);
+}
+
+.HomeArrowButtonRight {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+
+    border-left: 30px solid var(--main-font-color-emph);
+}
+
+
+
+#HomeArticle {
+    padding-top:10vh;
+    padding-bottom:5vh;
+}
 
 /* .LogoContainer svg {
     fill: url(#header-shape-gradient) red;

@@ -4,6 +4,7 @@ const ColorPickerRound = (props) => {
     const style = { backgroundColor: props.color };
 
     if(props.items){
+        // console.log(props.items)
         const colorsSelectedForItem = props.items.filter((item) => item.typeId === props.typeIdClicked).map((item) => item.color)
         
         if(colorsSelectedForItem.includes(props.color) )

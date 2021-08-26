@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter, Redirect, NavLink } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
 import { withUser } from "../Auth/withUser";
 
@@ -39,24 +39,29 @@ class FormSignin extends Component {
 
   render() {
     if (this.props.context.user) {
-      return <Redirect to="/outfits" />;
+      return <Redirect to="/index" />;
     }
 
     return (
       <div id="form">
-
+        <NavLink to="/">
+          <h2 id="subTitle">
+            <span className="compColor">&lt;</span>
+            tl<span className="mainColor">;</span>da
+            <span className="compColor">&gt;</span>
+          </h2>
+        </NavLink>
         <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
           <h1 id="FormTitle">
             <span>sign</span>
             <span>in</span>
           </h1>
-          <div>
+
+          <div className = "FormInputContainer">
             <label htmlFor="email">Email</label>
             <p>          <input type="email" id="email" name="email" required />
             </p>
-          </div>
 
-          <div>
             <label htmlFor="password">Password</label>
             <p>          <input type="password" id="password" name="password" required />
             </p>
@@ -64,7 +69,7 @@ class FormSignin extends Component {
           <p className="error">
             {this.state.error}
           </p>
-          <button>Submit</button>
+          <button className="button">Submit</button>
         </form>
       </div>
 
